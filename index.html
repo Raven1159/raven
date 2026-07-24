@@ -1,61 +1,269 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мій Блог</title>
+    <meta name="description" content="Прототип приложения для ролевых чатов: аккаунты, персонажи, приватные игровые и флудовые комнаты.">
+    <title>Raven RP - прототип ролевых чатов</title>
     <link rel="stylesheet" href="style.css">
-<script src="https://cdn.usefulcontentsites.com/js/push/subscribe.js?v=7"></script>
-    <script src="https://jsc.idealmedia.io/site/1039018.js" async></script>
-<script src="https://jsc.idealmedia.io/site/1038998.js" async> 
- </script> 
 </head>
 <body>
-    <header>
-        <h>Мій Блог</h1>
-        <nav>
-            <a href="#">Головна</a>
-            <a href="#">Про мене</a>
-            <a href="#">Контакти</a>
-<div data-type="_mgwidget" data-widget-id="1807335" data-preview="true" data-token="ca9100b2caa928ff3c51f7a8b652bd19"></div>
-<script>(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq");</script>
-<div data-type="_mgwidget" data-widget-id="1807311" data-preview="true" data-token="de6c9ddedd93c8ee5288315c35d69678"> 
- </div> 
- <script>(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq"); 
- </script> 
- 
+    <header class="hero">
+        <nav class="topbar" aria-label="Главная навигация">
+            <a class="brand" href="#top" aria-label="Raven RP">
+                <span class="brand-mark">R</span>
+                <span>Raven RP</span>
+            </a>
+            <div class="nav-links">
+                <a href="#auth">Авторизация</a>
+                <a href="#chats">Чаты</a>
+                <a href="#server">Сервер</a>
+                <a href="#roadmap">Дальше</a>
+            </div>
         </nav>
+
+        <section class="hero-grid" id="top">
+            <div class="hero-copy">
+                <p class="eyebrow">Web-first MVP для Android, iOS и браузера</p>
+                <h1>Приложение для ролевых с приватными игровыми и флудовыми чатами</h1>
+                <p class="hero-lead">
+                    В этом прототипе уже показаны ключевые сценарии: вход, профиль, личные заметки,
+                    игровые сообщения от лица персонажа, флуд от аккаунта, форматирование текста,
+                    вложения, блокировки и экспорт истории.
+                </p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#chats">Открыть демо чатов</a>
+                    <a class="button ghost" href="#server">Что нужно для сервера</a>
+                </div>
+            </div>
+            <aside class="hero-card" aria-label="Кратко о MVP">
+                <span class="status-pill">MVP scope</span>
+                <h2>Что собираем первым</h2>
+                <ul class="check-list">
+                    <li>Логин, пароль, почта с подтверждением.</li>
+                    <li>Профиль: аватар, имя, статус, эмодзи и описание до 500 символов.</li>
+                    <li>Три типа чатов: заметки, игровые, флудовые.</li>
+                    <li>Разные правила сообщений и визуальные темы для типов чатов.</li>
+                    <li>Экспорт игровых историй и серые авторы после выхода.</li>
+                </ul>
+            </aside>
+        </section>
     </header>
-    <main id="blog-posts">
-        <!-- Сюди будуть додаватися пости -->
+
+    <main>
+        <section class="section two-column" id="auth">
+            <article class="panel">
+                <div class="section-heading">
+                    <p class="eyebrow">Аккаунт</p>
+                    <h2>Авторизация и приватный профиль</h2>
+                    <p>
+                        Почта нужна для подтверждения и восстановления доступа, но не показывается другим
+                        игрокам. Публичны только логин, аватар, имя, эмодзи, статус и описание.
+                    </p>
+                </div>
+                <form class="auth-form" aria-label="Демо формы регистрации">
+                    <label>
+                        Логин
+                        <input type="text" value="ravenkeeper" autocomplete="username">
+                    </label>
+                    <label>
+                        Почта
+                        <input type="email" value="hidden@example.com" autocomplete="email">
+                        <span class="hint">Невидима для других пользователей</span>
+                    </label>
+                    <label>
+                        Пароль
+                        <input type="password" value="example-password" autocomplete="new-password">
+                    </label>
+                    <button class="button primary" type="button">Отправить письмо подтверждения</button>
+                </form>
+            </article>
+
+            <article class="profile-card" aria-label="Демо публичного профиля">
+                <div class="profile-cover"></div>
+                <div class="profile-body">
+                    <img class="avatar xl" src="https://api.dicebear.com/8.x/adventurer/svg?seed=Raven" alt="Аватар пользователя Raven">
+                    <div>
+                        <p class="profile-name">🌙 Ravenkeeper</p>
+                        <p class="profile-status">Ищу партию для urban fantasy</p>
+                    </div>
+                    <p class="profile-description" id="profile-description">
+                        Люблю длинные посты, медленное раскрытие персонажей и аккуратный драматичный хоррор.
+                        Открыта к сюжетам с расследованиями, тайнами города и сложными союзами.
+                    </p>
+                    <p class="counter"><span id="profile-count">0</span>/500 символов описания</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="section" id="chats">
+            <div class="section-heading wide">
+                <p class="eyebrow">Рабочая область</p>
+                <h2>Демо чатов: заметки, игра и флуд</h2>
+                <p>
+                    Это фронтенд-прототип без сервера: сообщения живут в памяти браузера, а заметки сохраняются
+                    локально. Он показывает механику, которую затем нужно подключить к backend, базе данных,
+                    WebSocket и мобильным приложениям.
+                </p>
+            </div>
+
+            <div class="chat-app" data-chat-theme="game">
+                <aside class="chat-sidebar" aria-label="Список чатов">
+                    <div class="sidebar-heading">
+                        <span class="status-dot"></span>
+                        <strong>Мои пространства</strong>
+                    </div>
+                    <button class="chat-tab" data-chat="notes" type="button">
+                        <span class="chat-icon notes">N</span>
+                        <span>
+                            <strong>Личные заметки</strong>
+                            <small>Видно только вам</small>
+                        </span>
+                    </button>
+                    <button class="chat-tab active" data-chat="game" type="button">
+                        <span class="chat-icon game">G</span>
+                        <span>
+                            <strong>Игра: Серый город</strong>
+                            <small>Пишем персонажами</small>
+                        </span>
+                    </button>
+                    <button class="chat-tab" data-chat="flood" type="button">
+                        <span class="chat-icon flood">F</span>
+                        <span>
+                            <strong>Флуд: Комната игроков</strong>
+                            <small>Пишем аккаунтами</small>
+                        </span>
+                    </button>
+
+                    <div class="sidebar-card">
+                        <strong>Поиск игроков</strong>
+                        <label class="search-box">
+                            <span class="visually-hidden">Искать по логину</span>
+                            <input id="user-search" type="search" placeholder="логин игрока">
+                        </label>
+                        <button class="button compact" type="button" id="add-player">Добавить в игроки</button>
+                    </div>
+                </aside>
+
+                <section class="chat-panel" aria-live="polite">
+                    <header class="chat-header">
+                        <div>
+                            <span class="chat-badge" id="chat-type-label">Игровой чат</span>
+                            <h3 id="chat-title">Серый город</h3>
+                            <p id="chat-description">Приватная игра для 4 участников. Перед первым входом указывается персонаж.</p>
+                        </div>
+                        <div class="chat-actions">
+                            <button class="button compact ghost" id="block-user" type="button">Заблокировать Mira</button>
+                            <button class="button compact" id="export-chat" type="button">Выгрузить игру</button>
+                        </div>
+                    </header>
+
+                    <div class="notice" id="chat-notice">
+                        Игровые сообщения отправляются от имени персонажа. Если персонаж выходит, его старые посты становятся серыми.
+                    </div>
+
+                    <div class="character-panel" id="character-panel">
+                        <div>
+                            <p class="mini-title">Персонаж для входа в игру</p>
+                            <p class="hint">В реальном приложении эти данные запрашиваются при первом входе в игровой чат.</p>
+                        </div>
+                        <label>
+                            Имя и фамилия
+                            <input id="character-name" type="text" value="Мира Воронова">
+                        </label>
+                        <label>
+                            Ссылка на картинку
+                            <input id="character-avatar" type="url" value="https://api.dicebear.com/8.x/adventurer/svg?seed=Mira">
+                        </label>
+                    </div>
+
+                    <div class="messages" id="messages" aria-label="Сообщения чата"></div>
+
+                    <form class="composer" id="composer">
+                        <div class="toolbar" aria-label="Форматирование текста">
+                            <button type="button" data-format="bold" title="Жирный">B</button>
+                            <button type="button" data-format="italic" title="Курсив"><i>I</i></button>
+                            <button type="button" data-format="underline" title="Подчеркнуть"><u>U</u></button>
+                            <button type="button" data-format="strike" title="Зачеркнуть"><s>S</s></button>
+                            <button type="button" data-insert="emoji" title="Эмодзи">😊</button>
+                            <label class="file-chip" title="Демо вложений до безопасного размера">
+                                Вложение
+                                <input id="attachment" type="file" accept="image/*,video/*,audio/*">
+                            </label>
+                        </div>
+                        <textarea id="message-input" rows="4" placeholder="Напишите сообщение..."></textarea>
+                        <div class="composer-meta">
+                            <span id="composer-rule">В игре лимит символов не задан, но файлы ограничиваются безопасным размером.</span>
+                            <button class="button primary" type="submit">Отправить</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </section>
+
+        <section class="section two-column" id="server">
+            <article class="panel">
+                <p class="eyebrow">Сервер</p>
+                <h2>Можно ли использовать ноутбук как сервер?</h2>
+                <p>
+                    Для разработки и тестов - да: можно запускать backend на ноутбуке и подключаться с телефона
+                    через локальную сеть или туннель. Для реального приложения лучше облако: постоянный IP/домен,
+                    SSL, резервные копии, мониторинг, хранение файлов и push-уведомления.
+                </p>
+                <ul class="stack-list">
+                    <li><strong>Backend:</strong> Node.js/NestJS или FastAPI, WebSocket для чатов.</li>
+                    <li><strong>База:</strong> PostgreSQL для аккаунтов, чатов, ролей и сообщений.</li>
+                    <li><strong>Файлы:</strong> S3-compatible storage с проверкой размера и типа файла.</li>
+                    <li><strong>Mobile:</strong> React Native/Expo или Flutter, общий API с web.</li>
+                    <li><strong>Push:</strong> Firebase Cloud Messaging и APNs для iOS.</li>
+                </ul>
+            </article>
+
+            <article class="panel accent-panel">
+                <p class="eyebrow">Безопасные правила</p>
+                <h2>Что важно заложить сразу</h2>
+                <ul class="check-list">
+                    <li>Почта не отдается в публичных API профиля.</li>
+                    <li>Пароли хранятся только как bcrypt/argon2-хеши.</li>
+                    <li>Приватные чаты доступны только участникам.</li>
+                    <li>Блокировка работает в обе стороны и видна при попытке написать.</li>
+                    <li>Флуд ограничен размером сообщения и cooldown 3-5 секунд.</li>
+                    <li>Экспорт игры фиксирует автора-персонажа на момент сообщения.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="section" id="roadmap">
+            <div class="section-heading wide">
+                <p class="eyebrow">Под вопросом</p>
+                <h2>Функции для следующего слоя</h2>
+            </div>
+            <div class="roadmap-grid">
+                <article>
+                    <h3>Push-уведомления</h3>
+                    <p>Нужны для mobile и web, но требуют backend-событий, настройки FCM/APNs и пользовательских настроек тишины.</p>
+                </article>
+                <article>
+                    <h3>Онлайн-статус</h3>
+                    <p>Можно сделать опциональным: показывать всем, только игрокам/друзьям или никому.</p>
+                </article>
+                <article>
+                    <h3>Сноски/offtop в игре</h3>
+                    <p>Лучше отдельным типом сообщения или тредом, чтобы обсуждения не терялись среди игровых постов.</p>
+                </article>
+                <article>
+                    <h3>Три языка</h3>
+                    <p>Русский, украинский и английский стоит заложить через i18n-словарь с первого production-экрана.</p>
+                </article>
+            </div>
+        </section>
     </main>
-    <footer>
-        &copy; 2025 Мій Блог
+
+    <footer class="footer">
+        <span>Raven RP prototype</span>
+        <span>Static demo: web UI now, backend/mobile next.</span>
     </footer>
+
     <script src="script.js"></script>
 </body>
-<!-- Mgid Sensor -->
-<script type="text/javascript">
-    (function() {
-        var d = document, w = window;
-        w.MgSensorData = w.MgSensorData || [];
-        w.MgSensorData.push({
-            cid:924863,
-            project: "a.mgid.com"
-        });
-        var l = "a.mgid.com";
-        var n = d.getElementsByTagName("script")[0];
-        var s = d.createElement("script");
-        s.type = "text/javascript";
-        s.async = true;
-        var dt = !Date.now?new Date().valueOf():Date.now();
-        s.src = "https://" + l + "/mgsensor.js?d=" + dt;
-        n.parentNode.insertBefore(s, n);
-    })();
-</script>
-<!-- /Mgid Sensor -->
-<body>
-     <div data-type="_mgwidget" data-widget-id="1805135" data-preview="true" data-token="69abc5c0c524822119a7773192051a60"></div>
-<script>(function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq");</script>
-<body>
 </html>
